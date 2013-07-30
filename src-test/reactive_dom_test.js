@@ -17,7 +17,7 @@ ReactiveDomTest.prototype.testBindToInput = function() {
   var x = null;
   $R(function (v) {
     x = v;
-  }).bindToInput("#myInput");
+  }).bindToChange("#myInput");
   $("#myInput").val("foo").change();
   assertEquals("foo", x);
 }
@@ -27,7 +27,7 @@ ReactiveDomTest.prototype.testBindToInputWithSanitizer = function() {
   var x = null;
   $R(function (v) {
     x = v;
-  }).bindToInput("#myInput", function (v) {return v.toUpperCase()});
+  }).bindToChange("#myInput", function (v) {return v.toUpperCase()});
   $("#myInput").val("foo").change();
   assertEquals("FOO", x);
 }

@@ -45,7 +45,7 @@
     },
     linkInput: function(rf, formatter, sanitizer) {
       this.bindInputTo(rf, formatter);
-      rf.bindToInput(this.el, sanitizer);
+      rf.bindToChange(this.el, sanitizer);
       return this;
     }
   };

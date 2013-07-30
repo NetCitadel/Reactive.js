@@ -51,7 +51,7 @@
       $(function() {
         var $table = $(".excel.reactive");
 
-        var a1 = $R.state(4).bindToInput($table.find("input"), function(v){return parseInt(v)});
+        var a1 = $R.state(4).bindToChange($table.find("input"), function(v){return parseInt(v)});
         var b1 = $R(function(a1) { return a1 + 1}).bindTo(a1);
         var a2 = $R(function(b1) { return b1 * 2}).bindTo(b1);
         var b2 = $R(function(b1, a2) { return b1 + a2}).bindTo(b1, a2);
