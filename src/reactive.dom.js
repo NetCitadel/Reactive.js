@@ -13,14 +13,14 @@
     bindAttributeTo: function (attribute, rf, formatter) {
       formatter = formatter || identity;
       $R(function(v) {
-        if (this.el[0]) { this.el[0][attribute] = formatter(v) }
+        if (this.el[0]) { this.el[0][attribute] = formatter.apply(this, [v]) }
       }, this).bindTo(rf);
       return this;
     },
     bindPropertyTo: function (property, rf, formatter) {
       formatter = formatter || identity;
       $R(function(v) {
-        this.el.prop(property, formatter(v));
+        this.el.prop(property, formatter.apply(this, [v]));
       }, this).bindTo(rf);
       return this;
     },
@@ -28,7 +28,7 @@
       formatter = formatter || identity;
       $R(function(v) {
         this.el.each(function() {
-            $(this).prop(property, formatter(v));
+            $(this).prop(property, formatter.apply(this, [v]));
         });
       }, this).bindTo(rf);
         return this;
